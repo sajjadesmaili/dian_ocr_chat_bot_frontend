@@ -12,7 +12,7 @@ export default function LoginPage() {
     // navigate("/chatbot")
     // در اینجا منطق لاگین را پیاده‌سازی کنید
 
-    const response = await fetch(`http://192.168.20.132:8000/api/auth/login`, {
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,8 +28,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div
-      className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-300 ${
+    <>
+      <div
+      className={`min-h-screen flex-col space-y-[185px] flex items-center justify-center p-4 transition-colors duration-300 ${
         darkMode
           ? "bg-gradient-to-br from-gray-900 via-gray-950 to-black"
           : "bg-gradient-to-br from-gray-100 to-gray-200"
@@ -99,7 +100,7 @@ export default function LoginPage() {
       </div>
 
       {/* کارت ورود */}
-      <div className="w-full max-w-md">
+      <div className="w-full top-20 max-w-md ">
         <div
           className={`rounded-2xl p-8 shadow-xl backdrop-blur-sm border border-gray-800/50 transition-all duration-300 ${
             darkMode ? "bg-gray-900/80" : "bg-white/80"
@@ -207,6 +208,13 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
+   <div className="w-full text-gray-500 flex items-center justify-center border-t-2 border-gray-500 font-bold text-sm">
+        
+          تمامی حقوق ماده و معنوی این سامانه متعلق به شرکت تحلیل گران داده دیان است
+      </div>
     </div>
+       
+    </>
+  
   );
 }

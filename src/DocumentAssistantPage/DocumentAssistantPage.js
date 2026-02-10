@@ -232,7 +232,7 @@ function MainContent({ onFilesSelected, state, setState, fileId }) {
 
     try {
       const response = await fetch(
-        `http://192.168.20.132:8000/api/documents/${fileId}/chat`,
+        `${process.env.REACT_APP_BASE_URL}/api/documents/${fileId}/chat`,
         {
           method: "POST",
           headers: {
@@ -506,7 +506,7 @@ function DragAndDrop({
 setLoading(true)
     try {
       const res = await fetch(
-        "http://192.168.20.132:8000/api/documents/upload",
+        `${process.env.REACT_APP_BASE_URL}/api/documents/upload`,
         {
           method: "POST",
           headers: {
@@ -543,7 +543,7 @@ setLoading(true)
     const auth = JSON.parse(localStorage.getItem("token"));
     try {
       const response = await fetch(
-        `http://192.168.20.132:8000/api/documents/${id}/deactivate`,
+        `${process.env.REACT_APP_BASE_URL}/api/documents/${id}/deactivate`,
         {
           method: "PATCH",
           headers: {
@@ -592,7 +592,7 @@ setLoading(true)
   const Getdocuments = async (id, token) => {
     try {
       const response = await fetch(
-        `http://192.168.20.132:8000/api/users/${id}/documents`,
+       `${process.env.REACT_APP_BASE_URL}/api/users/${id}/documents`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
